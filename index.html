@@ -1,12 +1,81 @@
 <html>
 <head>
 <title>ASU Pedestrian LiDAR Scenes Dataset</title>
+<style>
+	body{font-size: 14pt;}
+	div.bound{max-width: 800px; margin: auto; border: 1px solid; padding: 10px;}
+	table{border: 1px solid black;}
+	tr.top td{border-bottom: 1px solid black;}
+	div.label{text-align: center; font-style: italic;}
+	table.code{font-family: "Courier New", Courier, monospace; border: 0px solid black; background: rgb(255,240,240)}
+	table.code td{vertical-align: top; padding-right: 5pt;}
+</style>
 </head>
 <body>
-    <h1>ASU Pedestrian LiDAR Scenes Dataset</h1>
-    <div>
-        <p>Welcome to the webpage for the ASU Pedestrian LiDAR Scenes Dataset. Currently, this is under construction but we will update it soon with information on how to download and use our dataset for training LiDAR scene modeling systems. :)</p>
-        <p>Our dataset is in DoVE format, which may be read using the <a href="https://github.com/michaelsaxon/velodyne-dataset-utils">Velodyne Dataset Utils</a> repo.</p>
-    </div>
+<div class="bound">
+<h2>ASU Pedestrian LiDAR Scenes (APLS) Dataset</h2>
+<h3>Introduction</h3>
+<p>Welcome to the ASU Pedestrian LiDAR Scenes (APLS) Dataset. Currently, the dataset is being uploaded in three ~50 GB repositories. (<a href="https://github.com/asulidarset/APLS-1">APLS-1</a>, <a href="https://github.com/asulidarset/APLS-2">APLS-2</a>, <a href="https://github.com/asulidarset/APLS-3">APLS-3</a>)</p>
+	<p>We have collected the APLS dataset to facilitate efforts in point cloud representation learning using a semi-supervised "next frame given previous frames" prediction task.</p>
+<h3>Description</h3>
+	<p>APLS contains 30 hours of Velodyne HDL-32e point cloud data. It was captured in 20 collection runs in 10 different pedestrian walking areas around the campus of Arizona State University in 2019. The dataset contains ~1 million LiDAR frames.</p>
+<div class="label">Table 1: Collection run details</div>
+<table width="100%">
+<tr class="top"><td>Repo #</td><td>Run Name</td><td>Location</td><td>Time of Day</td><td>Weather</td><td>Traffic Level</td><td>N Frames</td><td>Duration</td></tr>
+<tr><td>1</td><td>Bookstore-1 </td><td>Bookstore</td><td> Afternoon </td><td> Sunny </td><td> High </td><td> 72939 </td><td> 2 hr, 1 min </td></tr>
+<tr><td>1</td><td>Bookstore-2 </td><td>Bookstore</td><td> Afternoon </td><td> Sunny </td><td> High </td><td> 39130 </td><td> 1 hr, 5 min </td></tr>
+<tr><td>1</td><td>Church-1 </td><td>Church</td><td> Morning </td><td> Sunny </td><td> Moderate </td><td> 58009 </td><td> 1 hr, 36 min </td></tr> 
+<tr><td>1</td><td>Church-2 </td><td>Church</td><td> Afternoon </td><td> Sunny </td><td> Moderate </td><td> 58793 </td><td> 1 hr, 38 min </td></tr>
+<tr><td>1</td><td>Courtyard </td><td>Courtyard </td><td> Afternoon </td><td> Sunny </td><td> Sparse </td><td> 92785 </td><td> 2 hr, 34 min </td></tr> 
+<tr><td>1</td><td>Thoroughfare </td><td>Thoroughfare </td><td> Mid-day </td><td> Sunny </td><td> Moderate </td><td> 53919 </td><td> 1 hr, 29 min </td></tr> 
+<tr><td>1</td><td>Pavilion-1 </td><td>Pavilion</td><td> Morning </td><td> Sunny </td><td> Moderate </td><td> 55541 </td><td> 1 hr, 33 min </td></tr> 
+<tr><td>2</td><td>Pavilion-2 </td><td>Pavilion</td><td> Afternoon </td><td> Sunny </td><td> Moderate </td><td> 54148 </td><td> 1 hr, 30 min </td></tr>
+<tr><td>2</td><td>Gymnasium-1 </td><td>Gymnasium</td><td> Sunset &amp; Evening </td><td> Night </td><td> High </td><td> 55613 </td><td> 1 hr, 32 min </td></tr> 
+<tr><td>2</td><td>Gymnasium-2 </td><td>Gymnasium</td><td> Sunset &amp; Evening </td><td> Night </td><td> High </td><td> 6727 </td><td> 0 hr, 11 min </td></tr>
+<tr><td>2</td><td>Gymnasium-3 </td><td>Gymnasium</td><td> Sunset &amp; Evening </td><td> Night </td><td> High </td><td> 45305 </td><td> 1 hr, 15 min </td></tr>
+<tr><td>2</td><td>Intersection-1 </td><td>Intersection</td><td> Morning </td><td> Sunny </td><td> Moderate </td><td> 56159 </td><td> 1 hr, 33 min </td></tr>
+<tr><td>2</td><td>Intersection-2 </td><td>Intersection</td><td> Afternoon </td><td> Overcast </td><td> Moderate </td><td> 53684 </td><td> 1 hr, 29 min </td></tr>
+<tr><td>3</td><td>Boulevard </td><td>Boulevard</td><td> Morning </td><td> Sunny </td><td> Low </td><td> 55284 </td><td> 1 hr, 32 min </td></tr>
+<tr><td>3</td><td>Fountain-1 </td><td>Fountain</td><td> Morning </td><td> Sunny </td><td> High </td><td> 52111 </td><td> 1 hr, 27 min </td></tr>
+<tr><td>3</td><td>Fountain-2 </td><td>Fountain</td><td> Afternoon </td><td> Overcast </td><td> Moderate </td><td> 24714 </td><td> 0 hr, 41 min</td></tr>
+<tr><td>3</td><td>Bench-1 </td><td>Bench</td><td> Morning </td><td> Sunny </td><td> Moderate </td><td> 54117 </td><td> 1 hr, 30 min </td></tr>
+<tr><td>3</td><td>Bench-2 </td><td>Bench</td><td> Afternoon </td><td> Sunny </td><td> Moderate </td><td> 55512 </td><td> 1 hr 32 min </td></tr>
+<tr><td>3</td><td>Bench-3 </td><td>Bench</td><td> Evening </td><td> Night </td><td> Moderate </td><td> 52110 </td><td> 1 hr, 27 min </td></tr>
+<tr><td>3</td><td>Bench-4 </td><td>Bench</td><td> Afternoon &amp; Evening </td><td> Sunset/Night </td><td> Moderate </td><td> 107714 </td><td> 3 hr, 0 min </td></tr>
+</table>
+<br>
+<div class="label">Figure 1: Campus collection locations<br><br>
+<img src="img/locations.png" width="90%">
+</div>
+<br>
+<div class="label">Figure 2: 3D sample of a frame<br>
+<img src="img/sample_3d.png" width="60%">
+</div>
+<br>
+<div class="label">Figure 3: "Depth camera" sample of a frame<br>
+<img src="img/sample_depth.png" width="95%">
+</div>
+
+<h3>Technical Details</h3>
+	<p>For space saving purposes, the data is stored in "Distance-only Velodyne" (DOVe) format. The files contain only the parts of the captured LiDAR bytestream that contain actual distance data, and all other data is discarded. Each frame is stored as a single file, rather than stored as a chunk of bytes in a package capture file containing all frames from a given run, as the Velodyne PCAP output data is initially stored. Thus, in addition to saving space, it enables in-place arbitrary reading of any frame in the dataset in <i>O(1)</i> without having to advance past all prior frames in time for a run. <p>
+
+	<p>The <a href="https://github.com/michaelsaxon/velodyne-dataset-utils">Velodyne Dataset Utils</a> repository contains the file "dove_dataset.py," which defines a Pytorch dataloader (DOVeDataset class) for a directory of DOVe format binary frames. The repo contains usage examples on loading a DOVe dataset such as APLS. Finally, the repo contains "parser.py," which can be used to convert any Velodyne HDLE-32e PCAP file into a DOVe dataset. We will extend the functionality of parser.py to support other LiDAR devices if there is interest.</p>
+
+<h3>Usage</h3>
+
+<p>The three parts of the dataset may be downloaded from their respective repositories (<a href="https://github.com/asulidarset/APLS-1">APLS-1</a>, <a href="https://github.com/asulidarset/APLS-2">APLS-2</a>, <a href="https://github.com/asulidarset/APLS-3">APLS-3</a>) and initialized as Pytorch datasets using the following code, for example for the directory containing "APLS-2":</p>
+<table class="code">
+<tr><td>1</td><td>import dove_dataset</td></tr> 
+<tr><td>2</td><td>from torch.utils.data import DataLoader</td></tr>
+<tr><td>3</td><td></td></tr>
+<tr><td>4</td><td>d_train, d_val, d_test = dove_dataset.DOVeDataset('./APLS-2/', frames_per_clip=10, raw=False, granularity=3)</td></tr>
+<tr><td>5</td><td>loader_train = DataLoader(d_train, batch_size=32, shuffle=True, num_workers=3)</td></tr>
+<tr><td>6</td><td>for minibatch in d_train:</td></tr>
+<tr><td>7</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</td></tr>
+</table>
+</div>
+
+
+
 </body>
 </html>
