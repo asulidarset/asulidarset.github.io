@@ -18,7 +18,7 @@
 <h2>ASU Pedestrian LiDAR Scenes (APLS) Dataset</h2>
 <h3>Introduction</h3>
 <h4>[NOTE: Upload in progress]</h4>
-<p>Welcome to the ASU Pedestrian LiDAR Scenes (APLS) Dataset. Currently, the dataset is being uploaded in three ~50 GB repositories. (<a href="https://github.com/asulidarset/APLS-1">APLS-1</a>, <a href="https://github.com/asulidarset/APLS-2">APLS-2</a>, <a href="https://github.com/asulidarset/APLS-3">APLS-3</a>)</p>
+<p>Welcome to the ASU Pedestrian LiDAR Scenes (APLS) Dataset. Currently, the dataset is being compressed for upload. A sample can be downloaded here (<a href="https://github.com/asulidarset/APLS-sample">APLS-sample</a>)</p>
 	<p>We have collected the APLS dataset to facilitate efforts in point cloud representation learning using a semi-supervised "next frame given previous frames" prediction task.</p>
 <h3>Description</h3>
 	<p>APLS contains 30 hours of Velodyne HDL-32e point cloud data. It was captured in 20 collection runs in 10 different pedestrian walking areas around the campus of Arizona State University in 2019. The dataset contains ~1 million LiDAR frames.</p>
@@ -66,12 +66,18 @@
 
 <h3>Usage</h3>
 
-<p>The three parts of the dataset may be downloaded from their respective repositories (<a href="https://github.com/asulidarset/APLS-1">APLS-1</a>, <a href="https://github.com/asulidarset/APLS-2">APLS-2</a>, <a href="https://github.com/asulidarset/APLS-3">APLS-3</a>) and initialized as Pytorch datasets using the following code, for example for the directory containing "APLS-2":</p>
+<p>A sample may be downloaded from <a href="https://github.com/asulidarset/APLS-sample">APLS-sample</a> and unzipped using the following:</p>
+<table class="code">
+<tr><td>$</td><td>cd APLS-sample/</td></tr>
+<tr><td>$</td><td>unzip Gym-2.zip</td></tr>
+<tr><td>$</td><td>cd ..</td></tr>
+</table>
+<p>The dataset can be initialized as Pytorch datasets using the following code, for example for the directory containing "APLS-sample":</p>
 <table class="code">
 <tr><td>1</td><td>import dove_dataset</td></tr> 
 <tr><td>2</td><td>from torch.utils.data import DataLoader</td></tr>
 <tr><td>3</td><td></td></tr>
-<tr><td>4</td><td>d_train, d_val, d_test = dove_dataset.CreateDOVeDatasets('./APLS-2/', frames_per_clip=10, raw=False, granularity=3)</td></tr>
+<tr><td>4</td><td>d_train, d_val, d_test = dove_dataset.CreateDOVeDatasets('./APLS-sample/', frames_per_clip=10, raw=False, granularity=3)</td></tr>
 <tr><td>5</td><td>loader_train = DataLoader(d_train, batch_size=32, shuffle=True, num_workers=3)</td></tr>
 <tr><td>6</td><td>for minibatch in d_train:</td></tr>
 <tr><td>7</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</td></tr>
